@@ -18,6 +18,7 @@ module MaRuKu::In::Markdown::SpanLevelParser
   #CharSource = CharSourceStrscan   # Faster on LONG documents. But StringScanner is buggy in Rubinius
   #CharSource = CharSourceDebug
 
+  CharSource.send(:attr_reader, :parent)
 
   class CharSourceManual
     def initialize(s, parent=nil)
