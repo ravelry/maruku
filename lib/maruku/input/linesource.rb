@@ -6,8 +6,9 @@ module MaRuKu::In::Markdown::BlockLevelParser
   #
 
   class LineSource
-    attr_reader :parent, :multiline
-
+    attr_reader :parent
+    attr_accessor :multiline
+ 
     def initialize(lines, parent=nil, parent_offset=nil, multiline = false)
       raise "NIL lines? " unless lines
       @lines = lines.map {|l| l.kind_of?(MaRuKu::MDLine) ? l : MaRuKu::MDLine.new(l) }
